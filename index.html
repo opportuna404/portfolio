@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opportuna___ | Сергей Тридворнов</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="guns-container">
+        <header class="profile-header">
+            <h1 class="profile-username">opportuna___</h1>
+            <div class="profile-role">Сергей Тридворнов</div>
+
+            <div class="social-pills">
+                <a href="https://t.me/Opportuna404" target="_blank" class="social-btn">
+                    <i class="fab fa-telegram-plane"></i> @Opportuna404
+                </a>
+                <a href="https://github.com/opportuna404" target="_blank" class="social-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <div class="section-header-bar">
+                <span class="section-title">Проекты</span>
+
+                <div class="layout-controls">
+                    <div class="control-group">
+                        <button class="control-btn active" data-view-btn="card" onclick="setViewMode('card')" title="Обычные карточки">
+                            <i class="fas fa-th-large"></i> Карточки
+                        </button>
+                        <button class="control-btn" data-view-btn="line" onclick="setViewMode('line')" title="Компактная линия (номер и название)">
+                            <i class="fas fa-bars"></i> Линия
+                        </button>
+                    </div>
+
+                    <span class="control-divider"></span>
+
+                    <div class="control-group">
+                        <button class="control-btn active" data-col-btn="1" onclick="setColumns(1)" title="Стандартный: 1 в строке">1</button>
+                        <button class="control-btn" data-col-btn="2" onclick="setColumns(2)" title="Средний: 2 в строке">2</button>
+                        <button class="control-btn" data-col-btn="3" onclick="setColumns(3)" title="Плотный: 3 в строке">3</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bento-list" id="bentoList" data-cols="1" data-view="card">
+
+                <article class="bento-card is-open" onclick="toggleCard(this)">
+                    <div class="bento-header-clickable">
+                        <div class="bento-title-group">
+                            <h2 class="bento-title">01. Raffle & LeadGen Funnel Bot</h2>
+                            <p class="bento-short-desc">Геймифицированная воронка розыгрыша призов с интерактивным кубиком, контролем спонсоров и скриншотами.</p>
+                        </div>
+                        <div class="expand-toggle">
+                            <span>ТЗ</span> <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="bento-expanded">
+                        <p class="tz-brief">Telegram-бот для массового привлечения и прогрева аудитории через механику розыгрыша с квалификацией лидов.</p>
+                        <ol class="tz-requirements">
+                            <li><strong>Запуск (/start) и витрина:</strong> Демонстрация 6 коллекционных призов (iPhone 16 Pro Max, AirPods Pro 2, TG Premium, PS5 Slim, Stars, MacBook Air), кнопки условий и отзывов.</li>
+                            <li><strong>Бросок кубика (send_dice):</strong> Интерактивный бросок кубика 🎲 с фиксацией выпавшего подарка (1–6) за аккаунтом в базе данных.</li>
+                            <li><strong>Сдача заданий (10 скриншотов):</strong> Загрузка скриншотов с комментариями и динамическим счетчиком: <code>[🟩🟩🟩⬜️⬜️⬜️] 3/10</code>.</li>
+                            <li><strong>Проверка подписки на спонсоров:</strong> Автоматическая валидация подписки через метод Bot API <code>get_chat_member</code>.</li>
+                            <li><strong>Верификация и номерной билет:</strong> Финальная символическая оплата (1 ₽) и генерация уникального билета участника (<code>#RAFFLE-2026-71431</code>).</li>
+                            <li><strong>Панель администратора:</strong> Сквозная конверсия воронки по всем 5 шагам (/admin) и список финалистов.</li>
+                        </ol>
+                        <div class="tz-meta">
+                            <span class="tz-tech">Python 3.12 · aiogram 3 · aiosqlite · Bot API</span>
+                            <span class="source-path">02_LeadGen_Funnel_Bot</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bento-card" onclick="toggleCard(this)">
+                    <div class="bento-header-clickable">
+                        <div class="bento-title-group">
+                            <h2 class="bento-title">02. Shop Digital Goods Bot</h2>
+                            <p class="bento-short-desc">Магазин цифровых товаров с балансом, автовыдачей ключей и панелью управления.</p>
+                        </div>
+                        <div class="expand-toggle">
+                            <span>ТЗ</span> <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="bento-expanded">
+                        <p class="tz-brief">Автоматизированный интернет-магазин цифрового контента (VPN-ключи, игровые доступы, AI-подписки) с моментальной доставкой данных.</p>
+                        <ol class="tz-requirements">
+                            <li><strong>Двухуровневый инлайн-каталог:</strong> Категории товаров с пагинацией, ценами, остатками на складе и описанием.</li>
+                            <li><strong>Внутренний баланс:</strong> Личный кабинет пользователя с историей пополнений, статистикой расходов и ID.</li>
+                            <li><strong>Атомарная покупка и выдача:</strong> Мгновенное списание средств и выдача ключа/доступа из базы в рамках единой ACID-транзакции.</li>
+                            <li><strong>Архив заказов:</strong> Раздел «Мои покупки» с постоянным доступом к ранее купленным ключам и аккаунтам.</li>
+                            <li><strong>Панель администратора:</strong> Добавление категорий и товаров через интерфейс бота, загрузка батчей ключей и статистика выручки.</li>
+                        </ol>
+                        <div class="tz-meta">
+                            <span class="tz-tech">Python 3.12 · aiogram 3 · aiosqlite · ACID</span>
+                            <span class="source-path">01_Shop_Digital_Goods</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bento-card" onclick="toggleCard(this)">
+                    <div class="bento-header-clickable">
+                        <div class="bento-title-group">
+                            <h2 class="bento-title">03. Service Booking & Client Cabinet Bot</h2>
+                            <p class="bento-short-desc">Сервис онлайн-записи и личный кабинет клиента с интерактивным календарем.</p>
+                        </div>
+                        <div class="expand-toggle">
+                            <span>ТЗ</span> <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="bento-expanded">
+                        <p class="tz-brief">Система онлайн-записи для сферы услуг (салоны, барбершопы, студии) с выбором мастера, даты и слотов времени.</p>
+                        <ol class="tz-requirements">
+                            <li><strong>Каталог услуг и мастера:</strong> Список процедур с длительностью и ценами, выбор конкретного мастера или «Любой свободный».</li>
+                            <li><strong>Интерактивный инлайн-календарь:</strong> Авторский компонент календаря в кнопках с переключением месяцев и отключением прошедших дат.</li>
+                            <li><strong>Умный выбор слотов:</strong> Проверка занятости времени в базе данных в реальном времени, предотвращающая двойную запись.</li>
+                            <li><strong>Личный кабинет клиента:</strong> Уровни лояльности (Silver / Gold / Platinum), накопленные бонусы и список активных записей.</li>
+                            <li><strong>Управление визитами:</strong> Отмена записи клиентом в 1 клик с моментальным освобождением слота в расписании.</li>
+                            <li><strong>Расписание администратора:</strong> Просмотр графика мастеров на сегодня и выбранные дни через <code>/admin_schedule</code>.</li>
+                        </ol>
+                        <div class="tz-meta">
+                            <span class="tz-tech">Python 3.12 · aiogram 3 · aiosqlite · FSM</span>
+                            <span class="source-path">03_Booking_Appointment_Bot</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bento-card" onclick="toggleCard(this)">
+                    <div class="bento-header-clickable">
+                        <div class="bento-title-group">
+                            <h2 class="bento-title">04. Marketplace Price Alert Bot</h2>
+                            <p class="bento-short-desc">Мониторинг цен Wildberries по артикулу с CDN-парсингом и фоновыми пуш-алертами.</p>
+                        </div>
+                        <div class="expand-toggle">
+                            <span>ТЗ</span> <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="bento-expanded">
+                        <p class="tz-brief">Асинхронный бот-мониторинг для селлеров и покупателей маркетплейса Wildberries с прямым CDN-парсингом без блокировок.</p>
+                        <ol class="tz-requirements">
+                            <li><strong>Распознавание ссылок и артикулов:</strong> Прием числового артикула или веб-ссылки любого формата с извлечением ID товара через Regex.</li>
+                            <li><strong>Парсинг через CDN Wildberries:</strong> Получение бренда, названия, актуальной цены и фото напрямую из CDN-кластера wbbasket.</li>
+                            <li><strong>Режимы отслеживания:</strong> Уведомление о любом снижении цены либо установка целевого ценового порога.</li>
+                            <li><strong>Асинхронный воркер:</strong> Фоновый опрос цен через <code>asyncio.create_task</code> с расчетом процента скидки и экономии.</li>
+                            <li><strong>Пуш-карточки уведомлений:</strong> Сообщение с фотографией товара, зачеркнутой старой ценой, новой скидкой и ссылкой на покупку.</li>
+                        </ol>
+                        <div class="tz-meta">
+                            <span class="tz-tech">Python 3.12 · aiohttp · aiosqlite · Regex</span>
+                            <span class="source-path">04_Marketplace_Price_Alert_Bot</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bento-card" onclick="toggleCard(this)">
+                    <div class="bento-header-clickable">
+                        <div class="bento-title-group">
+                            <h2 class="bento-title">05. AI Customer Support Bot</h2>
+                            <p class="bento-short-desc">Двухуровневая поддержка: ответы базы знаний/LLM + живой чат с ответом через Telegram Reply.</p>
+                        </div>
+                        <div class="expand-toggle">
+                            <span>ТЗ</span> <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="bento-expanded">
+                        <p class="tz-brief">Гибридная служба поддержки для e-commerce: автоматические консультации по FAQ и эскалация на оператора.</p>
+                        <ol class="tz-requirements">
+                            <li><strong>Автоматический FAQ-уровень:</strong> Мгновенные ответы на типовые вопросы (доставка, оплата, гарантия, возврат) по ключевым словам + интеграция с LLM.</li>
+                            <li><strong>Live-чат с оператором:</strong> Создание тикета поддержки и перевод диалога на дежурного менеджера по кнопке.</li>
+                            <li><strong>Нативный Telegram Reply:</strong> Оператор отвечает клиенту с помощью стандартного «Ответить» (Reply) прямо в Telegram без спец-панелей.</li>
+                            <li><strong>Тикетная система:</strong> Сохранение полной истории переписки, статусов (open/closed) и ролей отправителей в БД.</li>
+                            <li><strong>Оценка качества (CSAT):</strong> Запрос оценки от 1 до 5 звезд при завершении диалога со сбором статистики для руководства (/stats).</li>
+                        </ol>
+                        <div class="tz-meta">
+                            <span class="tz-tech">Python 3.12 · aiogram 3 · aiosqlite · LLM API</span>
+                            <span class="source-path">05_AI_Customer_Support_Bot</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bento-card" onclick="toggleCard(this)">
+                    <div class="bento-header-clickable">
+                        <div class="bento-title-group">
+                            <h2 class="bento-title">06. Crypto VIP Club Bot</h2>
+                            <p class="bento-short-desc">Монетизация закрытых каналов: оплата USDT/Stars, одноразовые инвайты и авто-кик.</p>
+                        </div>
+                        <div class="expand-toggle">
+                            <span>ТЗ</span> <i class="fas fa-chevron-down expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="bento-expanded">
+                        <p class="tz-brief">Платформа платного доступа в закрытые VIP-каналы и чаты с приемом криптовалюты и автоматическим контролем участников.</p>
+                        <ol class="tz-requirements">
+                            <li><strong>Криптоплатежи и Telegram Stars:</strong> Интеграция с официальным Crypto Pay API (USDT, TON, BTC) и нативными звездами Telegram.</li>
+                            <li><strong>Одноразовые инвайты:</strong> Создание персональной ссылки через Bot API с лимитом <code>member_limit = 1</code> для защиты от сливов.</li>
+                            <li><strong>Контроль срока подписки:</strong> Фоновый воркер проверяет даты окончания, отправляет предупреждение за 24 часа до списания.</li>
+                            <li><strong>Автоматический кик:</strong> Исключение пользователя из канала (<code>ban_chat_member</code> + <code>unban</code>), если подписка не продлена.</li>
+                            <li><strong>Кабинет резидента:</strong> Просмотр активного тарифа, оставшихся дней и моментальное продление доступа.</li>
+                        </ol>
+                        <div class="tz-meta">
+                            <span class="tz-tech">Python 3.12 · aiogram 3 · CryptoPay · Stars</span>
+                            <span class="source-path">06_Crypto_VIP_Club_Bot</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+        <footer class="guns-footer">
+            <div>built by <a href="https://guns.lol/opportuna___" target="_blank">opportuna___</a> • 2026</div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleCard(cardElement) {
+            cardElement.classList.toggle('is-open');
+        }
+
+        function setColumns(cols) {
+            const list = document.getElementById('bentoList');
+            list.setAttribute('data-cols', cols);
+            document.querySelectorAll('[data-col-btn]').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-col-btn') === String(cols));
+            });
+            localStorage.setItem('portfolio_cols', cols);
+        }
+
+        function setViewMode(mode) {
+            const list = document.getElementById('bentoList');
+            list.setAttribute('data-view', mode);
+            document.querySelectorAll('[data-view-btn]').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-view-btn') === mode);
+            });
+            localStorage.setItem('portfolio_view', mode);
+        }
+
+        (function initLayout() {
+            const savedCols = localStorage.getItem('portfolio_cols') || '1';
+            const savedView = localStorage.getItem('portfolio_view') || 'card';
+            setColumns(savedCols);
+            setViewMode(savedView);
+        })();
+    </script>
+</body>
+</html>
